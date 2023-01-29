@@ -1,10 +1,16 @@
 ﻿<Properties StartupConfiguration="{68F64622-4519-4FD5-BE14-AE03AB5032DC}|Default">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.ServiceCarTracker FirstBuild="True" PreferredExecutionTarget="MyMacID" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workbench ActiveDocument="ServiceCarTracker/Oil.cs">
     <Files>
-      <File FileName="ServiceCarTracker/Fuel.cs" Line="14" Column="1" />
+      <File FileName="ServiceCarTracker/Fuel.cs" />
       <File FileName="ServiceCarTracker/Main.cs" />
-      <File FileName="ServiceCarTracker/Oil.cs" Line="7" Column="30" />
+      <File FileName="ServiceCarTracker/Oil.cs" Line="17" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -16,10 +22,4 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

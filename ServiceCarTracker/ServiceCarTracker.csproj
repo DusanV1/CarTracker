@@ -99,6 +99,24 @@
     <Compile Include="Oil.cs" />
     <Compile Include="ServiceAndExpenses.cs" />
     <Compile Include="JsonStorage.cs" />
+    <Compile Include="ViewControllerDashboard.cs" />
+    <Compile Include="ViewControllerDashboard.designer.cs">
+      <DependentUpon>ViewControllerDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllerFuel.cs" />
+    <Compile Include="ViewControllerFuel.designer.cs">
+      <DependentUpon>ViewControllerFuel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllerOil.cs" />
+    <Compile Include="ViewControllerOil.designer.cs">
+      <DependentUpon>ViewControllerOil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllerServiceAndExpenses.cs" />
+    <Compile Include="ViewControllerServiceAndExpenses.designer.cs">
+      <DependentUpon>ViewControllerServiceAndExpenses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuelTableDataSource.cs" />
+    <Compile Include="FuelTableDelegate.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />

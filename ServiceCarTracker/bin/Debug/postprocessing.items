@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <_PostProcessingItem Include="ServiceCarTracker.app/Contents/MacOS/ServiceCarTracker">
+      <BCSymbolMapName>ServiceCarTracker.bcsymbolmap</BCSymbolMapName>
+      <NoDSymUtil>true</NoDSymUtil>
+      <dSYMSourcePathExists>false</dSYMSourcePathExists>
+      <NoSymbolStrip>true</NoSymbolStrip>
+      <dSYMInfoPlistRelativePath>ServiceCarTracker.app.dSYM\Contents\Info.plist</dSYMInfoPlistRelativePath>
+      <SymbolFile>/Users/dusan/My_data/obecne/CSharp/ServiceCarTrackerApplication/ServiceCarTracker/ServiceCarTracker/obj/Debug/mtouch-symbols.list</SymbolFile>
+      <DSymName>ServiceCarTracker.app.dSYM</DSymName>
+      <SourceProjectPath>/Users/dusan/My_data/obecne/CSharp/ServiceCarTrackerApplication/ServiceCarTracker/ServiceCarTracker</SourceProjectPath>
+    </_PostProcessingItem>
+  </ItemGroup>
+</Project>
