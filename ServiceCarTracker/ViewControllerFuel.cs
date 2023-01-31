@@ -14,31 +14,43 @@ namespace ServiceCarTracker
 		{
 		}
 
-        public FuelTableDataSource DataSourceWhole = new FuelTableDataSource();
-        
+        //public FuelTableDataSource DataSourceWhole = new FuelTableDataSource();
+        public FuelTableDataSource DataSource = new FuelTableDataSource();
+        public int i = 0;
+
 
         public override void AwakeFromNib()
         {
             base.AwakeFromNib();
 
             // Create the Product Table Data Source and populate it
-            var DataSource = new FuelTableDataSource();
-            
-            //DataSource.Fuels.Add(new Fuel("1/18/2023", 41.68,
-            //    1454.6, 34.9, 234142,
-            //    6.9, 2.41, "Tank Ono"));
+            //var DataSource = new FuelTableDataSource();
 
-            DataSource.Fuels.Add(new Fuel("1/18/2023", 41.68,
+           
+
+            //It loads twice for some reason
+            if(i==0)
+            {
+                DataSource.Fuels.Add(new Fuel("1/18/2023", 41.68,
                 1454.6, 34.9, 234142,
-                6.9, 2.41, "Tank Ono"));
+                6.9, 2.41, "Tank Ono1"));
+
+                DataSource.Fuels.Add(new Fuel("1/18/2023", 41.68,
+                1454.6, 34.9, 234142,
+                6.9, 2.41, "Tank Ono2"));
 
 
 
-            DataSourceWhole = DataSource;
+                //DataSourceWhole = DataSource;
 
-            // Populate the Product Table
-            FuelTable.DataSource = DataSource;
-            FuelTable.Delegate = new FuelTableDelegate(DataSource);
+                // Populate the Product Table
+                PopulateTableFuels(DataSource);
+                //FuelTable.DataSource = DataSource;
+                //FuelTable.Delegate = new FuelTableDelegate(DataSource);
+            }
+
+
+            i++;
         }
 
         private string GetTextDateFuel()
@@ -78,12 +90,37 @@ namespace ServiceCarTracker
         {
             FuelTable.ReloadData();
         }
+        public void PopulateTableFuels(FuelTableDataSource dataSource)
+        {
+            // Populate the Product Table
+            FuelTable.DataSource = dataSource;
+            FuelTable.Delegate = new FuelTableDelegate(dataSource);
+            ReloadTable();
+
+            
+        }
+
+        partial void BtnUpdateTableFuel(NSButton sender)
+        {
+            //PopulateTableFuels(DataSourceWhole);
+            PopulateTableFuels(DataSource);
+            //ReloadTable();
+        }
+
+        partial void BtnDeleteRowFuel(NSButton sender)
+        {
+            //delete selected line
+            nint row = FuelTable.SelectedRow;
+            DataSource.Fuels.RemoveAt(Convert.ToInt32(row));
+            ReloadTable();
+
+        }
 
         partial void BtnInsertDataFuel(NSButton sender)
         {
-            var DataSource = new FuelTableDataSource();
+            //var DataSource = new FuelTableDataSource();
             //DataSource.Products.Add(new Product(GetTextColumn1(), GetTextColumn2(), GetTextColumn3()));
-            DataSource = DataSourceWhole;
+            //DataSource = DataSourceWhole;
             //DataSource.Products.Add(new Product(GetTextColumn1(), GetTextColumn2(), GetTextColumn3()));
 
             //calculate the rest of the values
@@ -104,14 +141,15 @@ namespace ServiceCarTracker
 
 
             // Populate the Product Table
-            FuelTable.DataSource = DataSource;
-            FuelTable.Delegate = new FuelTableDelegate(DataSource);
-            //FuelTable.ReloadData();
-            ReloadTable();
+            PopulateTableFuels(DataSource);
+            //FuelTable.DataSource = DataSource;
+            //FuelTable.Delegate = new FuelTableDelegate(DataSource);
+            ////FuelTable.ReloadData();
+            //ReloadTable();
 
-            DataSourceWhole = DataSource;
+            //DataSourceWhole = DataSource;
             ResetTxtFlds();
-            //clear textfilds
+            
         }
     }
 }

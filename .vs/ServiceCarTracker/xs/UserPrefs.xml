@@ -1,25 +1,37 @@
 ﻿<Properties StartupConfiguration="{68F64622-4519-4FD5-BE14-AE03AB5032DC}|Default">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.ServiceCarTracker FirstBuild="True" PreferredExecutionTarget="MyMacID" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="ServiceCarTracker/Oil.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ServiceCarTracker/ViewControllerFuel.cs">
     <Files>
-      <File FileName="ServiceCarTracker/Fuel.cs" />
-      <File FileName="ServiceCarTracker/Main.cs" />
-      <File FileName="ServiceCarTracker/Oil.cs" Line="17" Column="1" />
+      <File FileName="ServiceCarTracker/Fuel.cs" Line="20" Column="1" />
+      <File FileName="ServiceCarTracker/FuelTableDataSource.cs" Line="20" Column="1" />
+      <File FileName="ServiceCarTracker/FuelTableDelegate.cs" Line="197" Column="1" />
+      <File FileName="ServiceCarTracker/ViewControllerFuel.cs" Line="101" Column="13" />
+      <File FileName="ServiceCarTracker/ViewControllerFuel.designer.cs" Line="63" Column="33" />
+      <File FileName="ServiceCarTracker/Main.cs" Line="10" Column="1" />
+      <File FileName="ServiceCarTracker/AppDelegate.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="ServiceCarTracker" expanded="True">
-            <Node name="ServiceCarTracker" expanded="True" />
+            <Node name="ServiceCarTracker" expanded="True">
+              <Node name="ViewControllerFuel.cs" expanded="True" />
+            </Node>
           </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State>
+          <Value>DataSource</Value>
+          <Value>int i;</Value>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.ServiceCarTracker PreferredExecutionTarget="MyMacID" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>

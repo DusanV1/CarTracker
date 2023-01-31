@@ -54,59 +54,20 @@ namespace ServiceCarTracker
 		[Outlet]
 		AppKit.NSTextField TxtFldPriceTotalFuel { get; set; }
 
+		[Action ("BtnDeleteRowFuel:")]
+		partial void BtnDeleteRowFuel (AppKit.NSButton sender);
+
 		[Action ("BtnInsertDataFuel:")]
 		partial void BtnInsertDataFuel (AppKit.NSButton sender);
+
+		[Action ("BtnUpdateTableFuel:")]
+		partial void BtnUpdateTableFuel (AppKit.NSButton sender);
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (TxtFldDateFuel != null) {
-				TxtFldDateFuel.Dispose ();
-				TxtFldDateFuel = null;
-			}
-
-			if (TxtFldAmountFuel != null) {
-				TxtFldAmountFuel.Dispose ();
-				TxtFldAmountFuel = null;
-			}
-
-			if (TxtFldPriceTotalFuel != null) {
-				TxtFldPriceTotalFuel.Dispose ();
-				TxtFldPriceTotalFuel = null;
-			}
-
-			if (TxtFldCarMilageFuel != null) {
-				TxtFldCarMilageFuel.Dispose ();
-				TxtFldCarMilageFuel = null;
-			}
-
-			if (TxtFldGasStationFuel != null) {
-				TxtFldGasStationFuel.Dispose ();
-				TxtFldGasStationFuel = null;
-			}
-
-			if (FuelTable != null) {
-				FuelTable.Dispose ();
-				FuelTable = null;
-			}
-
-			if (FuelDateClm != null) {
-				FuelDateClm.Dispose ();
-				FuelDateClm = null;
-			}
-
 			if (FuelAmountClm != null) {
 				FuelAmountClm.Dispose ();
 				FuelAmountClm = null;
-			}
-
-			if (FuelPriceTotalClm != null) {
-				FuelPriceTotalClm.Dispose ();
-				FuelPriceTotalClm = null;
-			}
-
-			if (FuelPricePerLiterClm != null) {
-				FuelPricePerLiterClm.Dispose ();
-				FuelPricePerLiterClm = null;
 			}
 
 			if (FuelCarMilageClm != null) {
@@ -119,14 +80,59 @@ namespace ServiceCarTracker
 				FuelConsumptionClm = null;
 			}
 
-			if (FuelPricePerKmClm != null) {
-				FuelPricePerKmClm.Dispose ();
-				FuelPricePerKmClm = null;
+			if (FuelDateClm != null) {
+				FuelDateClm.Dispose ();
+				FuelDateClm = null;
 			}
 
 			if (FuelGasStationClm != null) {
 				FuelGasStationClm.Dispose ();
 				FuelGasStationClm = null;
+			}
+
+			if (FuelPricePerKmClm != null) {
+				FuelPricePerKmClm.Dispose ();
+				FuelPricePerKmClm = null;
+			}
+
+			if (FuelPricePerLiterClm != null) {
+				FuelPricePerLiterClm.Dispose ();
+				FuelPricePerLiterClm = null;
+			}
+
+			if (FuelPriceTotalClm != null) {
+				FuelPriceTotalClm.Dispose ();
+				FuelPriceTotalClm = null;
+			}
+
+			if (FuelTable != null) {
+				FuelTable.Dispose ();
+				FuelTable = null;
+			}
+
+			if (TxtFldAmountFuel != null) {
+				TxtFldAmountFuel.Dispose ();
+				TxtFldAmountFuel = null;
+			}
+
+			if (TxtFldCarMilageFuel != null) {
+				TxtFldCarMilageFuel.Dispose ();
+				TxtFldCarMilageFuel = null;
+			}
+
+			if (TxtFldDateFuel != null) {
+				TxtFldDateFuel.Dispose ();
+				TxtFldDateFuel = null;
+			}
+
+			if (TxtFldGasStationFuel != null) {
+				TxtFldGasStationFuel.Dispose ();
+				TxtFldGasStationFuel = null;
+			}
+
+			if (TxtFldPriceTotalFuel != null) {
+				TxtFldPriceTotalFuel.Dispose ();
+				TxtFldPriceTotalFuel = null;
 			}
 		}
 	}

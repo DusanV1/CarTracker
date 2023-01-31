@@ -705,7 +705,7 @@
         <!--Tab View Controller-->
         <scene sceneID="5Iw-6L-wjM">
             <objects>
-                <tabViewController selectedTabViewItemIndex="3" id="Xpa-xg-NMS" sceneMemberID="viewController">
+                <tabViewController selectedTabViewItemIndex="1" id="Xpa-xg-NMS" sceneMemberID="viewController">
                     <tabViewItems>
                         <tabViewItem identifier="" id="KXt-dn-QsM"/>
                         <tabViewItem identifier="" id="8Gx-Dy-dUU"/>
@@ -1141,6 +1141,28 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uhq-dK-4Cw">
+                                <rect key="frame" x="116" y="356" width="115" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Update Table" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vrT-dw-F6q">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="BtnUpdateTableFuel:" target="Drm-VP-Dwg" id="ye7-jw-sfC"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BlY-YU-xIP">
+                                <rect key="frame" x="241" y="356" width="113" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Delete row" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="f3b-IR-KAZ">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="BtnDeleteRowFuel:" target="Drm-VP-Dwg" id="Fho-ZY-3xf"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>

@@ -96,6 +96,21 @@
 				<integer>13</integer>
 			</dict>
 		</array>
+		<key>uhq-dK-4Cw</key>
+		<array>
+			<dict>
+				<key>affected-objects</key>
+				<array>
+					<string>uhq-dK-4Cw</string>
+				</array>
+				<key>message</key>
+				<string>View is clipping its content</string>
+				<key>type</key>
+				<string>IBIssueTypeClippedContent</string>
+				<key>type-value</key>
+				<integer>13</integer>
+			</dict>
+		</array>
 		<key>vR7-bG-oe8</key>
 		<array>
 			<dict>
