@@ -12,9 +12,31 @@ namespace ServiceCarTracker
 	[Register ("ViewControllerDashboard")]
 	partial class ViewControllerDashboard
 	{
+		[Outlet]
+		AppKit.NSTextField AvgConsumptionDash { get; set; }
+
+		[Outlet]
+		AppKit.NSTextField AvgPricePerKmDash { get; set; }
+
+		[Outlet]
+		AppKit.NSTextField TotalPriceFuelDash { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (AvgConsumptionDash != null) {
+				AvgConsumptionDash.Dispose ();
+				AvgConsumptionDash = null;
+			}
+
+			if (AvgPricePerKmDash != null) {
+				AvgPricePerKmDash.Dispose ();
+				AvgPricePerKmDash = null;
+			}
+
+			if (TotalPriceFuelDash != null) {
+				TotalPriceFuelDash.Dispose ();
+				TotalPriceFuelDash = null;
+			}
 		}
 	}
 }

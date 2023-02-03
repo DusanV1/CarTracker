@@ -40,11 +40,19 @@ namespace ServiceCarTracker
                 //1818.4, 40.9, 231288,
                 //6.69, 2.73, "Tank Ono"));
 
-                DataSource.Fuels.Add(new Fuel("-", 0,
-                0, 0, 0,
-                0, 0, "-"));
+                //If json load from json otherwise do next line
+                string location = System.IO.Directory.GetCurrentDirectory();
+                location = location.Substring(0, location.IndexOf("/bin"));
+                if(File.Exists(location+"/Fuel.json"))
+                {
+                    DataSource.Fuels = JsonRead(location+"/Fuel.json");
+                }else
+                {
+                    DataSource.Fuels.Add(new Fuel("-", 0,
+                    0, 0, 0,
+                    0, 0, "-"));
+                }
 
-                
 
                 //DataSourceWhole = DataSource;
 
@@ -118,8 +126,6 @@ namespace ServiceCarTracker
         }
 
 
-
-
         partial void BtnUpdateTableFuel(NSButton sender)
         {
             //PopulateTableFuels(DataSourceWhole);
@@ -134,6 +140,8 @@ namespace ServiceCarTracker
             DataSource.Fuels.RemoveAt(Convert.ToInt32(row));
             ReloadTable();
         }
+
+        //Delete whole table (delete json file and load again)
 
         partial void BtnInsertDataFuel(NSButton sender)
         {
