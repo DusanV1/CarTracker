@@ -24,9 +24,7 @@ namespace ServiceCarTracker
 
         public override bool ApplicationShouldTerminateAfterLastWindowClosed(NSApplication sender)
         {
-
             return true;
-
         }
 
         public override NSApplicationTerminateReply ApplicationShouldTerminate(NSApplication sender)
@@ -43,11 +41,11 @@ namespace ServiceCarTracker
 
             if (result == 1000)
             {
-                
+                //gets the location of the project
                 string location = System.IO.Directory.GetCurrentDirectory();
                 location = location.Substring(0, location.IndexOf("/bin"));
 
-                //ViewControllerFuel.JsonStorage(ViewControllerFuel.DataSource.Fuels, "/Users/dusan/My_data/obecne/CSharp/ServiceCarTrackerApplication/ServiceCarTracker/ServiceCarTracker/Fuel.json");
+                
                 ViewControllerFuel.JsonStorage(ViewControllerFuel.DataSource.Fuels, location + "/Fuel.json");
                 return NSApplicationTerminateReply.Now;
             }

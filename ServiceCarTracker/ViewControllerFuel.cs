@@ -18,7 +18,6 @@ namespace ServiceCarTracker
 		{
 		}
 
-        //public FuelTableDataSource DataSourceWhole = new FuelTableDataSource();
         public static FuelTableDataSource DataSource = new FuelTableDataSource();
         public int i = 0;
 
@@ -26,21 +25,13 @@ namespace ServiceCarTracker
         {
             base.AwakeFromNib();
 
-            // Create the Product Table Data Source and populate it
-            //var DataSource = new FuelTableDataSource();
+           
 
             //It loads twice for some reason
             if(i==0)
             {
-                //DataSource.Fuels.Add(new Fuel("10/15/2022", 40.63,
-                //1661.8, 40.9, 230623,
-                //6.7, 2.75, "Tank Ono"));
-
-                //DataSource.Fuels.Add(new Fuel("10/24/2022", 44.46,
-                //1818.4, 40.9, 231288,
-                //6.69, 2.73, "Tank Ono"));
-
-                //If json load from json otherwise do next line
+               
+                //If json exists load from json otherwise input line with zeroes
                 string location = System.IO.Directory.GetCurrentDirectory();
                 location = location.Substring(0, location.IndexOf("/bin"));
                 if(File.Exists(location+"/Fuel.json"))
@@ -53,13 +44,9 @@ namespace ServiceCarTracker
                     0, 0, "-"));
                 }
 
-
-                //DataSourceWhole = DataSource;
-
                 // Populate the Product Table
                 PopulateTableFuels(DataSource);
-                //FuelTable.DataSource = DataSource;
-                //FuelTable.Delegate = new FuelTableDelegate(DataSource);
+                
             }
 
             i++;
@@ -67,7 +54,6 @@ namespace ServiceCarTracker
 
         private string GetTextDateFuel()
         {
-            //check if it is blank -> show warning and let the user input the parameter again
             return TxtFldDateFuel.StringValue;
         }
         private string GetTextAmountFuel()
@@ -113,14 +99,12 @@ namespace ServiceCarTracker
         public static void JsonStorage(List<Fuel> fuels, string location)
         {
             string jsonString = JsonSerializer.Serialize(fuels);
-            //string location = "/Users/dusan/My_data/obecne/CSharp/JsonTest/TestJsonFile.json";
             File.WriteAllText(location, jsonString);
         }
 
         public static List<Fuel> JsonRead(string location)
         {
             string jsonString = File.ReadAllText(location);
-            //Fuel fuelObject = JsonSerializer.Deserialize<Fuel>(jsonString)!;
             var fuelObjects = JsonSerializer.Deserialize<List<Fuel>>(jsonString);
             return fuelObjects;
         }
@@ -128,9 +112,7 @@ namespace ServiceCarTracker
 
         partial void BtnUpdateTableFuel(NSButton sender)
         {
-            //PopulateTableFuels(DataSourceWhole);
             PopulateTableFuels(DataSource);
-            //ReloadTable();
         }
 
         partial void BtnDeleteRowFuel(NSButton sender)
@@ -141,14 +123,9 @@ namespace ServiceCarTracker
             ReloadTable();
         }
 
-        //Delete whole table (delete json file and load again)
 
         partial void BtnInsertDataFuel(NSButton sender)
         {
-            //var DataSource = new FuelTableDataSource();
-            //DataSource.Products.Add(new Product(GetTextColumn1(), GetTextColumn2(), GetTextColumn3()));
-            //DataSource = DataSourceWhole;
-            //DataSource.Products.Add(new Product(GetTextColumn1(), GetTextColumn2(), GetTextColumn3()));
 
             //calculate the rest of the values
             double amountFuel = Convert.ToDouble(GetTextAmountFuel());
@@ -159,19 +136,16 @@ namespace ServiceCarTracker
             double pricePerLiterFuel = Math.Round(priceTotalFuel / amountFuel,2);
             double consumptionFuel = Math.Round(amountFuel / ((carMilageFuel - carMilageFuelPrevious) / 100),1);
             double pricePerKmFuel = Math.Round(pricePerLiterFuel / (100 / consumptionFuel),2);
-            
+
+            //insert data to first line (so the user doesnt have always scroll down
             DataSource.Fuels.Insert(0, (new Fuel(GetTextDateFuel(), amountFuel,
                 priceTotalFuel, pricePerLiterFuel, carMilageFuel,
                 consumptionFuel, pricePerKmFuel, GetTextGasStationFuel())));
 
             // Populate the Product Table
             PopulateTableFuels(DataSource);
-            //FuelTable.DataSource = DataSource;
-            //FuelTable.Delegate = new FuelTableDelegate(DataSource);
-            ////FuelTable.ReloadData();
-            //ReloadTable();
 
-            //DataSourceWhole = DataSource;
+            //reset text fields
             ResetTxtFlds();
             
         }

@@ -19,15 +19,16 @@ namespace ServiceCarTracker
 
 		public override void ViewDidAppear()
 		{
-            //AvgConsumptionDash.StringValue = "7.6";
             List<double> data = new List<double>();
-			data=CalcAvgConsumption(ViewControllerFuel.DataSource);
+			data=CalcDataFuel(ViewControllerFuel.DataSource);
+
             TextInpAvgConsumptionDash(Convert.ToString(Math.Round(data[0],1)));
             TextInpAvgPricePerKmDash(Convert.ToString(Math.Round(data[1],2)));
             TextInpTotalPriceFuelDash(Convert.ToString(data[2]));
 
         }
 
+        //Copy data not just reference them (because of the average it is necessary to delete last line with zeroes
         public static FuelTableDataSource DeepCopyFuel(FuelTableDataSource dataSource)
         {
             FuelTableDataSource result = new FuelTableDataSource();
@@ -49,12 +50,12 @@ namespace ServiceCarTracker
             return result;
         }
 
-        public List<double> CalcAvgConsumption(FuelTableDataSource dataSource)
+        public List<double> CalcDataFuel(FuelTableDataSource dataSource)
 		{
 			List<double> result=new List<double>();
 			FuelTableDataSource data = new FuelTableDataSource();
 			data = DeepCopyFuel(dataSource);
-            //double result = dataSource.Fuels.Count > 0 ? dataSource.Fuels.FuelConsumption.Average() : 0.0;
+            
             data.Fuels.RemoveAt(dataSource.Fuels.Count-1);
             result.Add(data.Fuels.Average(x => x.FuelConsumption));
             result.Add(data.Fuels.Average(x => x.FuelPricePerKm));

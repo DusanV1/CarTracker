@@ -25,6 +25,7 @@ namespace ServiceCarTracker
         }
         #endregion
 
+        //check if the string in the text field is double
         public bool IsDouble(string text)
         {
             Double num = 0;
@@ -42,7 +43,7 @@ namespace ServiceCarTracker
         }
 
         #region Override Methods
-        //cannot modify data in the table
+        
         public override NSView GetViewForItem(NSTableView tableView, NSTableColumn tableColumn, nint row)
         {
             // This pattern allows you reuse existing views when they are no-longer in use.
@@ -60,11 +61,11 @@ namespace ServiceCarTracker
                 view.Editable = true;
             }
 
+            //Table modification
             view.EditingEnded += (sender, e) =>
             {
 
-                // Take action based on type
-                //if(DataSource.Fuels.Count>1)
+                // if the modification is not on the last line 
                 if (view.Tag + 1 != DataSource.Fuels.Count)
                 {
                     switch (view.Identifier)
@@ -74,28 +75,12 @@ namespace ServiceCarTracker
                             break;
 
                         case "Amount":
-                            //DataSource.Products[(int)view.Tag].Column2 = view.StringValue;
-                            //break;
                             if (IsDouble(view.StringValue))
                             {
                                 DataSource.Fuels[(int)view.Tag].FuelAmount = Convert.ToDouble(view.StringValue);
                                 DataSource.Fuels[(int)view.Tag].FuelPricePerLiter = Math.Round(DataSource.Fuels[(int)view.Tag].FuelPriceTotal / DataSource.Fuels[(int)view.Tag].FuelAmount, 2);
                                 DataSource.Fuels[(int)view.Tag].FuelConsumption = Math.Round(DataSource.Fuels[(int)view.Tag].FuelAmount / ((DataSource.Fuels[(int)view.Tag].FuelCarMilage - DataSource.Fuels[(int)view.Tag + 1].FuelCarMilage) / 100), 1);
                                 DataSource.Fuels[(int)view.Tag].FuelPricePerKm = Math.Round(DataSource.Fuels[(int)view.Tag].FuelPricePerLiter / (100 / DataSource.Fuels[(int)view.Tag].FuelConsumption), 2);
-
-                                //write data to different cell or update whole table or row
-
-                                //tableColumn.Title = "PricePerLiter";
-                                //NSTextField viewFuelPricePerLiter = (NSTextField)tableView.MakeView(tableColumn.Title, this);
-                                //viewFuelPricePerLiter.Identifier= "PricePerLiter";
-                                //viewFuelPricePerLiter.StringValue = Convert.ToString(DataSource.Fuels[(int)view.Tag].FuelPricePerLiter);
-
-                                //ViewControllerFuel().ReloadTable();
-                                //FuelTable.DataSource = dataSource;
-                                //FuelTable.Delegate = new FuelTableDelegate(dataSource);
-                                //FuelTable.ReloadData();
-                                //ReloadTable();
-
                                 break;
                             }
                             else
@@ -104,11 +89,8 @@ namespace ServiceCarTracker
                                 break;
                             }
                         case "CarMilage":
-                            //DataSource.Products[(int)view.Tag].Column2 = view.StringValue;
-                            //break;
                             if (IsDouble(view.StringValue))
                             {
-                                //if it is double do recalculation
                                 if (view.Tag == 0)
                                 {
                                     DataSource.Fuels[(int)view.Tag].FuelCarMilage = Convert.ToDouble(view.StringValue);
@@ -143,15 +125,12 @@ namespace ServiceCarTracker
                             DataSource.Fuels[(int)view.Tag].FuelGasStation = view.StringValue;
                             break;
                         case "PriceTotal":
-                            //DataSource.Products[(int)view.Tag].Column2 = view.StringValue;
-                            //break;
                             if (IsDouble(view.StringValue))
                             {
                                 DataSource.Fuels[(int)view.Tag].FuelPriceTotal = Convert.ToDouble(view.StringValue);
                                 DataSource.Fuels[(int)view.Tag].FuelPricePerLiter = Math.Round(DataSource.Fuels[(int)view.Tag].FuelPriceTotal / DataSource.Fuels[(int)view.Tag].FuelAmount, 2);
                                 DataSource.Fuels[(int)view.Tag].FuelConsumption = Math.Round(DataSource.Fuels[(int)view.Tag].FuelAmount / ((DataSource.Fuels[(int)view.Tag].FuelCarMilage - DataSource.Fuels[(int)view.Tag + 1].FuelCarMilage) / 100), 1);
                                 DataSource.Fuels[(int)view.Tag].FuelPricePerKm = Math.Round(DataSource.Fuels[(int)view.Tag].FuelPricePerLiter / (100 / DataSource.Fuels[(int)view.Tag].FuelConsumption), 2);
-
                                 break;
                             }
                             else
@@ -159,53 +138,12 @@ namespace ServiceCarTracker
                                 view.StringValue = Convert.ToString(DataSource.Fuels[(int)view.Tag].FuelPriceTotal);
                                 break;
                             }
-                            //case "PricePerKm":
-                            //    //DataSource.Products[(int)view.Tag].Column2 = view.StringValue;
-                            //    //break;
-                            //    if (IsDouble(view.StringValue))
-                            //    {
-                            //        DataSource.Fuels[(int)view.Tag].FuelPricePerKm = Convert.ToDouble(view.StringValue);
-                            //        break;
-                            //    }
-                            //    else
-                            //    {
-                            //        view.StringValue = Convert.ToString(DataSource.Fuels[(int)view.Tag].FuelPricePerKm);
-                            //        break;
-                            //    }
-                            //case "PricePerLiter":
-                            //    //DataSource.Products[(int)view.Tag].Column2 = view.StringValue;
-                            //    //break;
-                            //    if (IsDouble(view.StringValue))
-                            //    {
-                            //        DataSource.Fuels[(int)view.Tag].FuelPricePerLiter = Convert.ToDouble(view.StringValue);
-                            //        break;
-                            //    }
-                            //    else
-                            //    {
-                            //        view.StringValue = Convert.ToString(DataSource.Fuels[(int)view.Tag].FuelPricePerLiter);
-                            //        break;
-                            //    }
-                            //case "Consumption":
-                            //    view.StringValue = Convert.ToString(DataSource.Fuels[(int)view.Tag].FuelConsumption);
-                            //    break;
-                            //if (IsDouble(view.StringValue))
-                            //{
-                            //    DataSource.Fuels[(int)view.Tag].FuelConsumption = Convert.ToDouble(view.StringValue);
-                            //    break;
-                            //}
-                            //else
-                            //{
-                            //    view.StringValue = Convert.ToString(DataSource.Fuels[(int)view.Tag].FuelConsumption);
-                            //    break;
-                            //}
-
-
-
-
+                           
                     }
                 }
                 else
                 {
+                    //last line
                     switch (view.Identifier)
                     {
                         case "CarMilage":
@@ -235,7 +173,7 @@ namespace ServiceCarTracker
             // Tag view
             view.Tag = row;
 
-            // Setup view based on the column selected
+            // Input dat in the cell based on the column 
             switch (tableColumn.Title)
             {
                 case "Date":
